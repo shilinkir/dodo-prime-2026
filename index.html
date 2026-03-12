@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Эволюция Комбо | Dodo Prime</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: #1a1a1a;
+            color: #ffffff;
+            overflow: hidden;
+        }
+
+        .presentation {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+            padding: 80px 120px;
+            background: #1a1a1a;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-number {
+            position: absolute;
+            bottom: 40px;
+            right: 120px;
+            font-size: 14px;
+            font-weight: 300;
+            color: #666;
+        }
+
+        .dodo-logo {
+            position: absolute;
+            top: 40px;
+            right: 120px;
+            font-size: 24px;
+            font-weight: 700;
+            color: #FF6900;
+        }
+
+        h1 {
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #FF6900 0%, #FF8C42 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            font-size: 38px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 40px;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            font-weight: 300;
+            line-height: 1.5;
+            color: #b0b0b0;
+            max-width: 1000px;
+        }
+
+        .subtitle.highlight {
+            font-size: 26px;
+            color: #ffffff;
+            font-weight: 400;
+        }
+
+        .hero-image {
+            margin-top: 60px;
+            width: 100%;
+            max-width: 1200px;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(255, 105, 0, 0.2);
+        }
+
+        .content-grid {
+            display: grid;
+            gap: 30px;
+            margin-top: 40px;
+            flex: 1;
+        }
+
+        .pain-points {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .pain-point {
+            background: rgba(100, 100, 100, 0.08);
+            padding: 35px;
+            border-radius: 12px;
+            border: 1px solid rgba(150, 150, 150, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .pain-point:hover {
+            background: rgba(120, 120, 120, 0.12);
+            border-color: rgba(180, 180, 180, 0.25);
+            transform: translateY(-3px);
+        }
+
+        .pain-icon {
+            font-size: 40px;
+            margin-bottom: 18px;
+            opacity: 0.7;
+        }
+
+        .pain-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pain-subtitle {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            color: #e0e0e0;
+            line-height: 1.3;
+        }
+
+        .pain-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .pain-bullets li {
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 1.6;
+            color: #a0a0a0;
+            margin-bottom: 12px;
+            padding-left: 22px;
+            position: relative;
+        }
+
+        .pain-bullets li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #777;
+            font-size: 20px;
+        }
+
+        .summary-badge {
+            margin-top: 25px;
+            padding: 25px 35px;
+            background: rgba(150, 80, 80, 0.15);
+            border-radius: 12px;
+            border: 1px solid rgba(180, 100, 100, 0.2);
+            text-align: center;
+        }
+
+        .highlight-orange {
+            color: #FF6900;
+            font-weight: 700;
+        }
+
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .methodology-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 30px 35px;
+            border-radius: 12px;
+            border-left: 4px solid #FF6900;
+            transition: all 0.3s ease;
+        }
+
+        .methodology-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateX(5px);
+        }
+
+        .methodology-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .methodology-icon {
+            font-size: 36px;
+            margin-right: 20px;
+            filter: brightness(1.2);
+        }
+
+        .methodology-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #FF6900;
+        }
+
+        .methodology-description {
+            font-size: 17px;
+            font-weight: 300;
+            line-height: 1.7;
+            color: #b0b0b0;
+            margin-bottom: 10px;
+        }
+
+        .methodology-result {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.6;
+            color: #d0d0d0;
+            padding-left: 20px;
+            border-left: 2px solid rgba(255, 105, 0, 0.3);
+            margin-top: 12px;
+        }
+
+        .waterfall-container {
+            margin-top: 30px;
+            padding: 40px 60px 100px 60px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .waterfall-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #FF6900;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .waterfall-chart {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 60px;
+            height: 280px;
+            margin-top: 30px;
+            position: relative;
+            border-top: 2px solid rgba(150, 150, 150, 0.3);
+            padding-top: 0;
+        }
+
+        .waterfall-bar {
+            width: 140px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        .waterfall-spacer {
+            width: 100%;
+        }
+
+        .waterfall-column {
+            width: 100%;
+            border-radius: 8px;
+            position: relative;
+            transition: all 0.5s ease;
+            animation: growWaterfall 1.2s ease-out;
+            transform-origin: top;
+        }
+
+        @keyframes growWaterfall {
+            from {
+                transform: scaleY(0);
+                opacity: 0;
+            }
+
+            to {
+                transform: scaleY(1);
+                opacity: 1;
+            }
+        }
+
+        .waterfall-column.green-light {
+            background: linear-gradient(180deg, rgba(76, 175, 80, 0.6) 0%, rgba(46, 125, 50, 0.5) 100%);
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
+        }
+
+        .waterfall-column.green-solid {
+            background: linear-gradient(180deg, #4CAF50 0%, #2E7D32 100%);
+            box-shadow: 0 4px 20px rgba(76, 175, 80, 0.3);
+        }
+
+        .waterfall-column.orange {
+            background: linear-gradient(180deg, #FF6900 0%, #FF8C42 100%);
+            box-shadow: 0 4px 25px rgba(255, 105, 0, 0.4);
+        }
+
+        .waterfall-label {
+            position: absolute;
+            top: calc(100% + 15px);
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 15px;
+            font-weight: 500;
+            color: #d0d0d0;
+            text-align: center;
+            width: 140px;
+            line-height: 1.2;
+        }
+
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .two-column-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 40px;
+            align-items: start;
+        }
+
+        .left-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .right-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .compact-metrics {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .compact-metric-card {
+            background: linear-gradient(135deg, rgba(255, 105, 0, 0.15) 0%, rgba(255, 140, 66, 0.05) 100%);
+            padding: 25px 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 105, 0, 0.3);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .compact-metric-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 40px rgba(255, 105, 0, 0.3);
+        }
+
+        .compact-metric-value {
+            font-size: 50px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #FF6900 0%, #FF8C42 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .compact-metric-label {
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 1.4;
+            color: #ffffff;
+        }
+
+        .compact-chart {
+            margin-top: 30px;
+            padding: 30px 25px 50px 25px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .compact-chart-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #FF6900;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .compact-bar-chart {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 25px;
+            height: 200px;
+            margin-top: 15px;
+            position: relative;
+        }
+
+        .compact-bar-wrapper {
+            width: 80px;
+            height: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .compact-bar-spacer {
+            width: 100%;
+        }
+
+        .compact-bar {
+            width: 80px;
+            max-width: 80px;
+            flex-shrink: 0;
+            border-radius: 6px 6px 0 0;
+            position: relative;
+            transition: all 0.3s ease;
+            animation: growBar 1s ease-out;
+        }
+
+        .compact-bar.green {
+            background: linear-gradient(180deg, #4CAF50 0%, #2E7D32 100%);
+        }
+
+        .compact-bar.orange {
+            background: linear-gradient(180deg, #FF6900 0%, #FF8C42 100%);
+        }
+
+        .compact-bar-label {
+            position: absolute;
+            bottom: -38px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 13px;
+            font-weight: 500;
+            color: #d0d0d0;
+            white-space: nowrap;
+            text-align: center;
+            width: 100px;
+        }
+
+        .automation-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .automation-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #FF6900;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .automation-blocks {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            flex: 1;
+        }
+
+        .automation-block {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        .automation-block:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .automation-block.before {
+            border-left: 4px solid #E57373;
+        }
+
+        .automation-block.after {
+            border-left: 4px solid #4CAF50;
+        }
+
+        .automation-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+            width: fit-content;
+        }
+
+        .automation-badge.before {
+            background: rgba(229, 115, 115, 0.2);
+            color: #E57373;
+        }
+
+        .automation-badge.after {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4CAF50;
+        }
+
+        .automation-visual {
+            margin: 15px 0;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            min-height: 140px;
+            max-height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .automation-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .spreadsheet-chaos {
+            font-family: 'Courier New', monospace;
+            font-size: 9px;
+            color: #888;
+            line-height: 1.3;
+            text-align: left;
+            width: 100%;
+            position: relative;
+        }
+
+        .spreadsheet-error {
+            color: #FF5252;
+            font-weight: 900;
+            text-shadow: 0 0 8px rgba(255, 82, 82, 0.5);
+        }
+
+        .integration-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            gap: 15px;
+        }
+
+        .integration-logo {
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            color: #FF6900;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(255, 105, 0, 0.2);
+        }
+
+        .integration-arrow {
+            font-size: 32px;
+            color: #4CAF50;
+            filter: drop-shadow(0 0 10px rgba(76, 175, 80, 0.5));
+            font-weight: 300;
+        }
+
+        .automation-text {
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 1.6;
+            color: #b0b0b0;
+            margin-top: auto;
+        }
+
+        .product-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 50px;
+            flex: 1;
+        }
+
+        .product-column {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        .product-column:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .product-column-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #FF6900;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .product-visual {
+            margin: 20px 0 30px 0;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            min-height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .product-card-mock {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid rgba(255, 105, 0, 0.3);
+            text-align: center;
+            width: 80%;
+        }
+
+        .product-default-badge {
+            display: inline-block;
+            background: rgba(255, 105, 0, 0.3);
+            color: #FF6900;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+
+        .price-tag {
+            font-size: 72px;
+            font-weight: 700;
+            color: #FF6900;
+            text-shadow: 0 4px 20px rgba(255, 105, 0, 0.5);
+        }
+
+        .pizza-stack {
+            font-size: 64px;
+            opacity: 0.8;
+        }
+
+        .product-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .product-bullets li {
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            color: #e0e0e0;
+        }
+
+        .product-bullets li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #FF6900;
+            font-weight: 700;
+            font-size: 22px;
+        }
+
+        .final-accent {
+            margin-top: 40px;
+            padding: 25px 40px;
+            background: linear-gradient(135deg, rgba(255, 105, 0, 0.2) 0%, rgba(255, 140, 66, 0.1) 100%);
+            border-radius: 12px;
+            border: 2px solid rgba(255, 105, 0, 0.4);
+            text-align: center;
+        }
+
+        .final-accent-text {
+            font-size: 22px;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.4;
+        }
+
+        .final-accent-highlight {
+            color: #FF6900;
+        }
+
+        .summary-text {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #c0c0c0;
+        }
+
+        .summary-text strong {
+            color: #d0d0d0;
+            font-weight: 700;
+        }
+
+        .solution-diagram {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 60px;
+            padding: 60px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .team-box {
+            flex: 1;
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 105, 0, 0.1);
+            border-radius: 12px;
+            border: 2px solid rgba(255, 105, 0, 0.3);
+        }
+
+        .team-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #FF6900;
+        }
+
+        .arrow {
+            font-size: 40px;
+            color: #FF6900;
+            margin: 0 20px;
+        }
+
+        .features-list {
+            margin-top: 50px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border-left: 4px solid #FF6900;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateX(10px);
+        }
+
+        .feature-icon {
+            font-size: 42px;
+            margin-right: 25px;
+            flex-shrink: 0;
+            filter: brightness(1.2);
+        }
+
+        .feature-content {
+            flex: 1;
+        }
+
+        .feature-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #FF6900;
+        }
+
+        .feature-text {
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.6;
+            color: #b0b0b0;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, rgba(255, 105, 0, 0.15) 0%, rgba(255, 140, 66, 0.05) 100%);
+            padding: 50px 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 105, 0, 0.3);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 60px rgba(255, 105, 0, 0.3);
+        }
+
+        .metric-value {
+            font-size: 56px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #FF6900 0%, #FF8C42 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+        }
+
+        .metric-label {
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.5;
+            color: #b0b0b0;
+        }
+
+        .chart-container {
+            margin-top: 50px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .bar-chart {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 40px;
+            height: 300px;
+            margin-top: 20px;
+        }
+
+        .bar {
+            width: 140px;
+            max-width: 140px;
+            flex-shrink: 0;
+            background: linear-gradient(180deg, #FF6900 0%, #FF8C42 100%);
+            border-radius: 8px 8px 0 0;
+            position: relative;
+            transition: all 0.3s ease;
+            animation: growBar 1s ease-out;
+        }
+
+        .bar.green {
+            background: linear-gradient(180deg, #4CAF50 0%, #2E7D32 100%);
+        }
+
+        .bar.orange {
+            background: linear-gradient(180deg, #FF6900 0%, #FF8C42 100%);
+        }
+
+        @keyframes growBar {
+            from {
+                height: 0;
+            }
+        }
+
+        .bar:hover {
+            transform: scaleY(1.05);
+        }
+
+        .bar.green:hover {
+            box-shadow: 0 -10px 30px rgba(76, 175, 80, 0.4);
+        }
+
+        .bar.orange:hover {
+            box-shadow: 0 -10px 30px rgba(255, 105, 0, 0.4);
+        }
+
+        .bar-label {
+            position: absolute;
+            bottom: -45px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 16px;
+            font-weight: 500;
+            color: #d0d0d0;
+            white-space: nowrap;
+            text-align: center;
+            width: 160px;
+        }
+
+        .bar-value {
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 18px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .bar.green .bar-value {
+            color: #4CAF50;
+        }
+
+        .bar.orange .bar-value {
+            color: #FF6900;
+        }
+
+        .benefits-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 60px;
+        }
+
+        .benefit-section {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .benefit-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #FF6900;
+        }
+
+        .benefit-list {
+            list-style: none;
+        }
+
+        .benefit-list li {
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            color: #e0e0e0;
+        }
+
+        .benefit-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #FF6900;
+            font-weight: 700;
+            font-size: 22px;
+        }
+
+        .final-message {
+            max-width: 1100px;
+            margin: 80px auto;
+            text-align: center;
+        }
+
+        .final-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #FF6900 0%, #FF8C42 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .final-text {
+            font-size: 24px;
+            font-weight: 300;
+            line-height: 1.6;
+            color: #b0b0b0;
+        }
+
+        .highlight {
+            color: #FF6900;
+            font-weight: 700;
+        }
+
+        .controls {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 1000;
+        }
+
+        .control-btn {
+            background: rgba(255, 105, 0, 0.2);
+            border: 2px solid rgba(255, 105, 0, 0.5);
+            color: #FF6900;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .control-btn:hover {
+            background: rgba(255, 105, 0, 0.4);
+            border-color: #FF6900;
+            transform: scale(1.05);
+        }
+
+        .control-btn:active {
+            transform: scale(0.95);
+        }
+
+        .scale-badge {
+            display: inline-block;
+            background: rgba(255, 105, 0, 0.2);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #FF6900;
+            margin-top: 30px;
+        }
+
+        .slide.centered {
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .slide.centered h1 {
+            max-width: 100%;
+        }
+
+        .slide.centered .subtitle {
+            max-width: 100%;
+        }
+
+        .product-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 50px;
+        }
+
+        .product-column {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 35px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-column-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #FF6900;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .product-visual {
+            margin: 20px 0;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            min-height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .combo-card-mock {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            border: 2px solid rgba(255, 105, 0, 0.3);
+            text-align: center;
+            width: 80%;
+        }
+
+        .default-badge {
+            display: inline-block;
+            background: #FF6900;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-top: 15px;
+        }
+
+        .product-selector {
+            display: inline-block;
+            background: rgba(255, 105, 0, 0.2);
+            border: 2px solid #FF6900;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #FF6900;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+
+        .price-tag {
+            font-size: 72px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #FF6900 0%, #FF8C42 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 105, 0, 0.3);
+        }
+
+        .pizza-stack {
+            font-size: 64px;
+            margin-left: 20px;
+        }
+
+        .product-bullets {
+            list-style: none;
+            padding: 0;
+            margin-top: 25px;
+        }
+
+        .product-bullets li {
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 1.7;
+            color: #e0e0e0;
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .product-bullets li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #FF6900;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .final-slogan {
+            margin-top: 40px;
+            padding: 25px 40px;
+            background: linear-gradient(135deg, rgba(255, 105, 0, 0.15) 0%, rgba(255, 140, 66, 0.05) 100%);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 105, 0, 0.3);
+            text-align: center;
+        }
+
+        .final-slogan-text {
+            font-size: 20px;
+            font-weight: 700;
+            color: #FF6900;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="presentation">
+        <!-- Слайд 1: Титульный -->
+        <div class="slide active" id="slide-1">
+            <div class="dodo-logo">DODO PRIME</div>
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1; text-align: center;">
+                <h1 style="text-align: center;">Эволюция Комбо:<br>От ручного управления<br>к гибкости и автоматизации</h1>
+                <div class="subtitle" style="text-align: center; margin: 0 auto;">
+                    Кейс по оптимизации ключевой категории сети для роста маржинальности и эффективности
+                </div>
+                <div class="hero-image" style="background-image: url('dodo_prime_image.png'); margin: 40px auto 0 auto;"></div>
+            </div>
+            <div class="slide-number">1 / 11</div>
+        </div>
+
+        <!-- Слайд 2: Точка «А» -->
+        <div class="slide" id="slide-2">
+            <div class="dodo-logo">DODO PRIME</div>
+            <h2>Точка «А» — Ограничения и основные боли</h2>
+
+            <div class="pain-points">
+                <div class="pain-point">
+                    <div class="pain-icon">📉</div>
+                    <div class="pain-subtitle">Потерянная выручка и UX-барьеры</div>
+                    <ul class="pain-bullets">
+                        <li>Отсутствие выбора размеров внутри комбо лишало сеть возможности допродаж (<span
+                                class="highlight-orange">AOV</span>).</li>
+                        <li>Устаревший интерфейс создавал трение на пути к покупке, снижая конверсию в корзину.</li>
+                    </ul>
+                </div>
+
+                <div class="pain-point">
+                    <div class="pain-icon">🚫</div>
+                    <div class="pain-subtitle">Отсутствие инструментов роста</div>
+                    <ul class="pain-bullets">
+                        <li><span class="highlight-orange">Отсутствие</span> инструментов для быстрых <span
+                                class="highlight-orange">ценовых тестов</span> превращало поиск «точек роста прибыли» в
+                            гадание.</li>
+                        <li>Бизнес устанавливал скидку в комбо и управлял ей «на интуиции».</li>
+                    </ul>
+                </div>
+
+                <div class="pain-point">
+                    <div class="pain-icon">⏱️</div>
+                    <div class="pain-subtitle">Операционный хаос</div>
+                    <ul class="pain-bullets">
+                        <li><span class="highlight-orange">Десятки часов</span> ежемесячно тратились командой на
+                            агрегацию данных и ручной расчет цен/апсейлов.</li>
+                        <li>«Человеческий фактор» как системный риск при каждой прогрузке цен.</li>
+                    </ul>
+                </div>
+
+                <div class="pain-point">
+                    <div class="pain-icon">⚠️</div>
+                    <div class="pain-subtitle">Клиентское доверие</div>
+                    <ul class="pain-bullets">
+                        <li><span class="highlight-orange">100+</span> комбинаций с «отрицательной скидкой» (комбо
+                            дороже отдельных продуктов).</li>
+                        <li>Прямой риск лояльности гостей: комбо могло восприниматься не как выгода, а как «ловушка».
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="summary-badge">
+                <div class="summary-text">
+                    <strong>Суммарно:</strong> более 100 часов рутины в месяц и сотни потенциальных жалоб клиентов
+                    ежегодно
+                </div>
+            </div>
+
+            <div class="slide-number">2 / 11</div>
+        </div>
+
+        <!-- Слайд 3: Решение -->
+        <div class="slide" id="slide-3">
+            <div class="dodo-logo">DODO PRIME</div>
+            <h2>Эволюция Комбо</h2>
+            <div class="subtitle">Как мы объединили Маркетинг, Данные и IT</div>
+
+            <div class="solution-diagram">
+                <div class="team-box">
+                    <div class="team-name">Маркетинг</div>
+                </div>
+                <div class="arrow">↔</div>
+                <div class="team-box">
+                    <div class="team-name">Data Office<br><span style="font-size: 16px; font-weight: 400;">(Pricing, ML,
+                            Core Data)</span></div>
+                </div>
+                <div class="arrow">↔</div>
+                <div class="team-box">
+                    <div class="team-name">Dev<br><span style="font-size: 16px; font-weight: 400;">(Xmenu, Client
+                            Platform Menu)</span></div>
+                </div>
+            </div>
+
+            <div class="features-list">
+                <div class="feature-item">
+                    <div class="feature-icon">📲</div>
+                    <div class="feature-content">
+                        <div class="feature-title">UX и гибкость выбора</div>
+                        <div class="feature-text">Внедрение гибкого выбора размеров и редизайн интерфейса для роста
+                            конверсии</div>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🧠</div>
+                    <div class="feature-content">
+                        <div class="feature-title">Data-driven подход</div>
+                        <div class="feature-text">Внедрение ценовых тестов, системы алертингов, автоматизация процессов
+                            и связь дисконта с
+                            Unit & Labour Cost</div>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🍕</div>
+                    <div class="feature-content">
+                        <div class="feature-title">Экономическая оптимизация меню</div>
+                        <div class="feature-text">Пересмотр структуры комбо и продуктов по умолчанию для снижения
+                            фудкоста и роста доступности</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide-number">3 / 11</div>
+        </div>
+
+        <!-- Слайд 4: Продуктовые улучшения -->
+        <div class="slide" id="slide-4">
+            <div class="dodo-logo">DODO PRIME</div>
+            <h2>Эволюция комбо — Продуктовые улучшения</h2>
+            <div class="subtitle">Контент слайда будет добавлен</div>
+
+            <div class="slide-number">4 / 11</div>
+        </div>
+
+        <!-- Слайд 5: Аналитический подход -->
+        <div class="slide" id="slide-5">
+            <div class="dodo-logo">DODO PRIME</div>
+            <h2>Аналитический подход к управлению комбо</h2>
+            <div class="subtitle">Убрали интуитивное управление и рутину, заменив их методологией и автоматизацией</div>
+
+            <div class="methodology-grid">
+                <div class="methodology-item">
+                    <div class="methodology-header">
+                        <div class="methodology-icon">🧠</div>
+                        <div class="methodology-title">Методология Discount Score</div>
+                    </div>
+                    <div class="methodology-description">
+                        Внедрена логика определения скидки в комбо с жесткой привязкой к <span
+                            class="highlight-orange">Unit Cost</span> и <span class="highlight-orange">Labour
+                            Cost</span>.
+                    </div>
+                    <div class="methodology-result">
+                        <strong>Смысл:</strong> Теперь скидка — это не случайное число, а математически обоснованный
+                        баланс между выгодой клиента и прибылью партнера.
+                    </div>
+                </div>
+
+                <div class="methodology-item">
+                    <div class="methodology-header">
+                        <div class="methodology-icon">⚙️</div>
+                        <div class="methodology-title">Автоматизация Апсейлов в комбо</div>
+                    </div>
+                    <div class="methodology-description">
+                        Автоматический пересчет доплат за замену продуктов.
+                    </div>
+                    <div class="methodology-result">
+                        <strong>Результат:</strong> Сокращение операционных затрат времени в <span
+                            class="highlight-orange">10 раз</span>. Больше нет «забытых» или некорректных цен при вводе
+                        новинок.
+                    </div>
+                </div>
+
+                <div class="methodology-item">
+                    <div class="methodology-header">
+                        <div class="methodology-icon">🧪</div>
+                        <div class="methodology-title">Культура тестирования</div>
+                    </div>
+                    <div class="methodology-description">
+                        Запуск системы регулярных ценовых тестов и вариаций состава комбо.
+                    </div>
+                    <div class="methodology-result">
+                        <strong>Эффект:</strong> Каждое изменение теперь подкреплено данными, а не гипотезами.
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide-number">5 / 11</div>
+        </div>
+
+        <!-- Слайд 6: Экономический эффект -->
+        <div class="slide" id="slide-6">
+            <div class="dodo-logo">DODO PRIME</div>
+            <h2>Эффект на P&L</h2>
+
+            <div class="two-column-layout">
+                <!-- Левая колонка: метрики и график -->
+                <div class="left-column">
+                    <div class="automation-title" style="margin-bottom: 20px; margin-top: 0;">Успешные тесты и
+                        автоматизация снижают Unit Cost</div>
+
+                    <div class="compact-metrics">
+                        <div class="compact-metric-card">
+                            <div class="compact-metric-value">-0.4 п.п.</div>
+                            <div class="compact-metric-label">Успешные ценовые гипотезы</div>
+                        </div>
+                        <div class="compact-metric-card">
+                            <div class="compact-metric-value">-0.1 п.п.</div>
+                            <div class="compact-metric-label">Своевременный пересчет апсейлов и минимизация ошибок</div>
+                        </div>
+                    </div>
+
+                    <div class="compact-chart">
+                        <div class="compact-chart-title">Структура экономии Unit Cost</div>
+                        <div class="compact-bar-chart">
+                            <!-- Бар 1: Тесты - стоит на земле -->
+                            <div class="compact-bar-wrapper">
+                                <div class="compact-bar green" style="height: 130px;">
+                                    <div class="compact-bar-label">Тесты</div>
+                                </div>
+                            </div>
+                            <!-- Бар 2: Автоматизация - плавает в воздухе -->
+                            <div class="compact-bar-wrapper">
+                                <div class="compact-bar-spacer" style="height: 130px;"></div>
+                                <div class="compact-bar green" style="height: 40px;">
+                                    <div class="compact-bar-label">Автоматизация</div>
+                                </div>
+                            </div>
+                            <!-- Бар 3: Итого - полная высота -->
+                            <div class="compact-bar-wrapper">
+                                <div class="compact-bar orange" style="height: 170px;">
+                                    <div class="compact-bar-label">Итого</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Правая колонка: автоматизация -->
+                <div class="right-column">
+                    <div class="automation-section">
+                        <div class="automation-title">Автоматизация: от Рутины к Интеграции</div>
+
+                        <div class="automation-blocks">
+                            <!-- Блок БЫЛО -->
+                            <div class="automation-block before">
+                                <div class="automation-badge before">Было</div>
+                                <div class="automation-visual" style="padding: 5px; background: rgba(0, 0, 0, 0.3);">
+                                    <img src="google_sheet.png">
+                                </div>
+                                <div class="automation-text">
+                                    <strong>Огромные Google Таблицы:</strong> Часы ручных расчетов, риск ошибок,
+                                    невозможность гибкого изменения
+                                </div>
+                            </div>
+
+                            <!-- Блок СТАЛО -->
+                            <div class="automation-block after">
+                                <div class="automation-badge after">Стало</div>
+                                <div class="automation-visual">
+                                    <div class="integration-flow">
+                                        <div class="integration-logo">
+                                            Databricks
+                                        </div>
+                                        <div class="integration-arrow">→</div>
+                                        <div class="integration-logo">
+                                            DodoIS
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="automation-text">
+                                    <strong>Интеграция Databricks + DodoIS:</strong> Мгновенные авторасчеты апсейлов и
+                                    алертинг на Discount
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide-number">6 / 11</div>
+        </div>
+
+        <!-- Слайд 7: Гибкость и доступность -->
+        <div class="slide" id="slide-7">
+            <div class="dodo-logo">DODO PRIME</div>
+            <h2>Эволюция комбо — Продукт и меню</h2>
+            
+            <div class="product-columns">
+                <!-- Левая колонка: Инструменты -->
+                <div class="product-column">
+                    <div class="product-column-title">Гибкость управления составом</div>
+                    
+                    <div class="product-visual">
+                        <div class="combo-card-mock">
+                            <div style="font-size: 16px; font-weight: 700; color: #e0e0e0; margin-bottom: 15px;">
+                                Комбо «День студента»
+                            </div>
+                            <div class="product-selector">
+                                🍕 Выбор продукта ▼
+                            </div>
+                            <div class="default-badge">
+                                По умолчанию
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <ul class="product-bullets">
+                        <li>Изменение состава комбо на более выгодные по Unit Cost продукты</li>
+                        <li>Возможность устанавливать продукты с доплатой (upsell) по умолчанию</li>
+                    </ul>
+                </div>
+
+                <!-- Правая колонка: Результат -->
+                <div class="product-column">
+                    <div class="product-column-title">Доступность для клиента</div>
+                    
+                    <div class="product-visual">
+                        <div style="display: flex; align-items: center; justify-content: center;">
+                            <div class="price-tag">-15%</div>
+                            <div class="pizza-stack">🍕</div>
+                        </div>
+                    </div>
+                    
+                    <ul class="product-bullets">
+                        <li>Внедрение бюджетных позиций в состав комбо</li>
+                        <li>Снижение цены входа в категорию на 10-15% для больших наборов</li>
+                        <li>Сохранение целевой маржинальности</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="final-slogan">
+                <div class="final-slogan-text">
+                    Больше продаж за счет доступности — без ущерба для прибыли
+                </div>
+            </div>
+
+            <div class="slide-number">7 / 11</div>
+        </div>
+
+        <!-- Слайд 8: Продукт и меню -->
+        <div class="slide" id="slide-8">
+            <div class="dodo-logo">DODO PRIME</div>
+            <h2>Эволюция комбо — Продукт и меню</h2>
+            <div class="subtitle">Контент слайда будет добавлен</div>
+
+            <div class="slide-number">8 / 11</div>
+        </div>
+
+        <!-- Слайд 9: Экономика -->
+        <div class="slide" id="slide-9">
+            <div class="dodo-logo">DODO PRIME</div>
+            <h2>Экономика — Влияние на P&L</h2>
+            <div class="subtitle">Прямые деньги для партнера и сети</div>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value">-0.15 п.п.</div>
+                    <div class="metric-label">Снижение Unit Cost</div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-value">+N млн ₽</div>
+                    <div class="metric-label">Дополнительная выручка за счет Size Up</div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-value">+N млн ₽</div>
+                    <div class="metric-label">Прибыль от успешных ценовых тестов</div>
+                </div>
+            </div>
+
+            <div class="chart-container" style="margin-top: 40px;">
+                <div style="font-size: 18px; font-weight: 700; color: #FF6900; margin-bottom: 20px;">
+                    Динамика роста прибыли после внедрения Combo Engine
+                </div>
+                <div class="bar-chart">
+                    <div class="bar orange" style="height: 30%;">
+                        <div class="bar-value">До</div>
+                        <div class="bar-label">Ручное управление</div>
+                    </div>
+                    <div class="bar orange" style="height: 55%;">
+                        <div class="bar-value">Тест</div>
+                        <div class="bar-label">Пилот в регионах</div>
+                    </div>
+                    <div class="bar orange" style="height: 85%;">
+                        <div class="bar-value">Сейчас</div>
+                        <div class="bar-label">Полная раскатка</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide-number">9 / 11</div>
+        </div>
+
+        <!-- Слайд 10: Партнер и Клиент -->
+        <div class="slide" id="slide-10">
+            <div class="dodo-logo">DODO PRIME</div>
+            <h2>Партнер и Клиент — Win-Win</h2>
+            <div class="subtitle">Удобство и доступность для всех</div>
+
+            <div class="benefits-split">
+                <div class="benefit-section">
+                    <div class="benefit-title">Для партнера</div>
+                    <ul class="benefit-list">
+                        <li>Ноль ошибок в ценообразовании</li>
+                        <li>Мгновенная настройка новых комбо</li>
+                        <li>Автоматический контроль маржинальности</li>
+                        <li>Быстрое добавление новинок</li>
+                        <li>Снижение операционных затрат</li>
+                    </ul>
+                </div>
+
+                <div class="benefit-section">
+                    <div class="benefit-title">Для клиента</div>
+                    <ul class="benefit-list">
+                        <li>Цена входа в категорию ниже на 10-15%</li>
+                        <li>Прозрачное ценообразование</li>
+                        <li>Возможность увеличить размер (Size Up)</li>
+                        <li>Больше выбор актуальных комбо</li>
+                        <li>Гарантированная выгода от набора</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="margin-top: 50px; text-align: center;">
+                <div class="scale-badge">✓ Раскатано на всю сеть</div>
+            </div>
+
+            <div class="slide-number">10 / 11</div>
+        </div>
+
+        <!-- Слайд 11: Итоги -->
+        <div class="slide" id="slide-11">
+            <div class="dodo-logo">DODO PRIME</div>
+
+            <div class="final-message">
+                <div class="final-title">Категория, готовая<br>к масштабированию</div>
+                <div class="final-text">
+                    Мы не просто «поправили цены» — мы создали <span class="highlight">масштабируемый инструмент</span>,
+                    который делает сеть <span class="highlight">устойчивее</span> и <span
+                        class="highlight">прибыльнее</span>.
+                </div>
+                <div style="margin-top: 80px;">
+                    <div style="font-size: 32px; font-weight: 700; color: #FF6900; margin-bottom: 20px;">
+                        Combo Engine
+                    </div>
+                    <div style="font-size: 18px; font-weight: 300; color: #888;">
+                        От боли к автоматизации. От хаоса к системе. От затрат к прибыли.
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide-number">11 / 11</div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button class="control-btn" onclick="previousSlide()">← Назад</button>
+        <button class="control-btn" onclick="nextSlide()">Вперед →</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 11;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+
+            if (n > totalSlides) {
+                currentSlide = 1;
+            }
+            if (n < 1) {
+                currentSlide = totalSlides;
+            }
+
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+
+            document.getElementById(`slide-${currentSlide}`).classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide++;
+            if (currentSlide > totalSlides) {
+                currentSlide = 1;
+            }
+            showSlide(currentSlide);
+        }
+
+        function previousSlide() {
+            currentSlide--;
+            if (currentSlide < 1) {
+                currentSlide = totalSlides;
+            }
+            showSlide(currentSlide);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                previousSlide();
+            }
+        });
+
+        showSlide(currentSlide);
+    </script>
+</body>
+
+</html>
