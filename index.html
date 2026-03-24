@@ -618,6 +618,199 @@
             margin-top: auto;
         }
 
+        .redesign-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 40px;
+            height: 100%;
+        }
+
+        .redesign-left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .mobile-screens {
+            width: 100%;
+            height: 100%;
+            max-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .mobile-screens img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 20px 60px rgba(255, 105, 0, 0.3));
+        }
+
+        .redesign-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .redesign-section-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #FF6900;
+            margin-bottom: 30px;
+            line-height: 1.3;
+        }
+
+        .ux-improvements {
+            margin-bottom: 35px;
+        }
+
+        .ux-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 18px;
+            gap: 12px;
+        }
+
+        .ux-icon {
+            font-size: 20px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .ux-text {
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 1.6;
+            color: #e0e0e0;
+        }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .kpi-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .kpi-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .kpi-card.orange-card {
+            background: linear-gradient(135deg, rgba(255, 105, 0, 0.15) 0%, rgba(255, 140, 66, 0.05) 100%);
+            border: 2px solid rgba(255, 105, 0, 0.4);
+            box-shadow: 0 4px 20px rgba(255, 105, 0, 0.2);
+        }
+
+        .kpi-card.green-card {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.15) 0%, rgba(46, 125, 50, 0.05) 100%);
+            border: 2px solid rgba(76, 175, 80, 0.4);
+            box-shadow: 0 4px 20px rgba(76, 175, 80, 0.2);
+        }
+
+        .kpi-card.blue-card {
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.15) 0%, rgba(21, 101, 192, 0.05) 100%);
+            border: 2px solid rgba(33, 150, 243, 0.4);
+            box-shadow: 0 4px 20px rgba(33, 150, 243, 0.2);
+        }
+
+        .kpi-card.yellow-card {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.15) 0%, rgba(255, 160, 0, 0.05) 100%);
+            border: 2px solid rgba(255, 193, 7, 0.4);
+            box-shadow: 0 4px 20px rgba(255, 193, 7, 0.2);
+        }
+
+        .kpi-icon {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .kpi-value {
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .kpi-card.orange-card .kpi-value {
+            background: linear-gradient(135deg, #FF6900 0%, #FF8C42 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .kpi-card.green-card .kpi-value {
+            color: #4CAF50;
+        }
+
+        .kpi-card.blue-card .kpi-value {
+            color: #2196F3;
+        }
+
+        .kpi-card.yellow-card .kpi-value {
+            color: #FFC107;
+        }
+
+        .kpi-sublabel {
+            font-size: 11px;
+            font-weight: 400;
+            color: #ffffff;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+
+        .kpi-label {
+            font-size: 13px;
+            font-weight: 300;
+            line-height: 1.4;
+            color: #b0b0b0;
+            margin-top: 8px;
+        }
+
+        .ux-section-header {
+            font-size: 16px;
+            font-weight: 700;
+            color: #d0d0d0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .user-flow-label {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #d0d0d0;
+        }
+
+        .result-footer {
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
         .product-split {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -1337,11 +1530,67 @@
             <div class="slide-number">3 / 9</div>
         </div>
 
-        <!-- Слайд 4: Продуктовые улучшения -->
+        <!-- Слайд 4: Редизайн интерфейса -->
         <div class="slide" id="slide-4">
             <div class="dodo-logo">DODO PRIME</div>
-            <h2>Эволюция комбо — Продуктовые улучшения</h2>
-            <div class="subtitle">Контент слайда будет добавлен</div>
+            
+            <div class="redesign-layout">
+                <!-- Левая колонка: Визуализация -->
+                <div class="redesign-left">
+                    <div class="mobile-screens">
+                        <img src="redisign.png" alt="Mobile App Redesign">
+                    </div>
+                </div>
+
+                <!-- Правая колонка: Текст и метрики -->
+                <div class="redesign-right">
+                    <div class="redesign-section-title">Новый UX карточки комбо:<br>Рост вовлечения и выручки</div>
+                    
+                    <div class="ux-improvements">
+                        <div class="ux-section-header">🔑 Ключевые UX Трансформации</div>
+                        <div class="ux-item">
+                            <div class="ux-icon">✅</div>
+                            <div class="ux-text"><strong>От статики к конструктору:</strong> Теперь виден слот замены, вовлечение в процесс выросло.</div>
+                        </div>
+                        <div class="ux-item">
+                            <div class="ux-icon">✅</div>
+                            <div class="ux-text"><strong>Когнитивная легкость:</strong> Сделали процесс замены прозрачным и удобным.</div>
+                        </div>
+                        <div class="ux-item">
+                            <div class="ux-icon">✅</div>
+                            <div class="ux-text"><strong>Нативные апсейлы размеров:</strong> Size Up и топпинги теперь удобная часть сценария.</div>
+                        </div>
+                    </div>
+
+                    <div class="kpi-grid">
+                        <div class="kpi-card orange-card">
+                            <div class="kpi-icon">📊</div>
+                            <div class="kpi-value">~40 млн ₽</div>
+                            <div class="kpi-sublabel">+0.4% инкрементальная выручка сети</div>
+                            <div class="kpi-label">Оценочная инкрементальная выручка по сети в месяц</div>
+                        </div>
+                        <div class="kpi-card green-card">
+                            <div class="kpi-icon">🍕</div>
+                            <div class="kpi-value">+33%</div>
+                            <div class="kpi-label">Прирост кастомизации и продаж топпингов</div>
+                        </div>
+                        <div class="kpi-card blue-card">
+                            <div class="kpi-icon">📈</div>
+                            <div class="kpi-value">+0.5 п.п.</div>
+                            <div class="kpi-label">Прирост конверсии в корзину (iOS)</div>
+                        </div>
+                        <div class="kpi-card yellow-card">
+                            <div class="kpi-icon">⚡</div>
+                            <div class="kpi-value">4%</div>
+                            <div class="kpi-label">Конверсия в Size Up (увеличенный размер пиццы) на тесте</div>
+                        </div>
+                    </div>
+
+                    <div class="result-footer">
+                        Результат: Повышение лояльности и выручки за счет лучшего клиентского опыта
+                    </div>
+                </div>
+            </div>
 
             <div class="slide-number">4 / 9</div>
         </div>
@@ -1538,52 +1787,6 @@
 
             <div class="slide-number">7 / 9</div>
         </div>
-
-        <!-- Слайд 8: Экономика -->
-        <!-- <div class="slide" id="slide-8">
-            <div class="dodo-logo">DODO PRIME</div>
-            <h2>Экономика — Влияние на P&L</h2>
-            <div class="subtitle">Прямые деньги для партнера и сети</div>
-
-            <div class="metrics-grid">
-                <div class="metric-card">
-                    <div class="metric-value">-0.15 п.п.</div>
-                    <div class="metric-label">Снижение Unit Cost</div>
-                </div>
-
-                <div class="metric-card">
-                    <div class="metric-value">+N млн ₽</div>
-                    <div class="metric-label">Дополнительная выручка за счет Size Up</div>
-                </div>
-
-                <div class="metric-card">
-                    <div class="metric-value">+N млн ₽</div>
-                    <div class="metric-label">Прибыль от успешных ценовых тестов</div>
-                </div>
-            </div>
-
-            <div class="chart-container" style="margin-top: 40px;">
-                <div style="font-size: 18px; font-weight: 700; color: #FF6900; margin-bottom: 20px;">
-                    Динамика роста прибыли после внедрения Combo Engine
-                </div>
-                <div class="bar-chart">
-                    <div class="bar orange" style="height: 30%;">
-                        <div class="bar-value">До</div>
-                        <div class="bar-label">Ручное управление</div>
-                    </div>
-                    <div class="bar orange" style="height: 55%;">
-                        <div class="bar-value">Тест</div>
-                        <div class="bar-label">Пилот в регионах</div>
-                    </div>
-                    <div class="bar orange" style="height: 85%;">
-                        <div class="bar-value">Сейчас</div>
-                        <div class="bar-label">Полная раскатка</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="slide-number">8 / 9</div>
-        </div> -->
 
         <!-- Слайд 8: Партнер и Клиент -->
         <div class="slide" id="slide-8">
