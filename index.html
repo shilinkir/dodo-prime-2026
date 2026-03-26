@@ -1395,6 +1395,138 @@
             font-weight: 700;
             color: #FF6900;
         }
+
+        .three-zone-layout {
+            display: grid;
+            grid-template-columns: 0.8fr 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+            align-items: start;
+        }
+
+        .size-up-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .size-up-visual img {
+            width: 120%;
+            height: auto;
+            max-height: 750px;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 30px rgba(255, 105, 0, 0.2));
+        }
+
+        .metrics-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .size-metric-card {
+            background: rgba(255, 255, 255, 0.04);
+            padding: 20px 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .size-metric-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            transform: translateX(5px);
+            border-color: rgba(255, 105, 0, 0.3);
+        }
+
+        .size-metric-icon {
+            font-size: 32px;
+            flex-shrink: 0;
+        }
+
+        .size-metric-content {
+            flex: 1;
+        }
+
+        .size-metric-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: #FF6900;
+            margin-bottom: 5px;
+        }
+
+        .size-metric-value.green {
+            color: #4CAF50;
+        }
+
+        .size-metric-label {
+            font-size: 14px;
+            font-weight: 300;
+            color: #b0b0b0;
+            line-height: 1.4;
+        }
+
+        .insights-column {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .insights-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #FF6900;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .insight-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            border-left: 3px solid #FF6900;
+        }
+
+        .insight-text {
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 1.6;
+            color: #e0e0e0;
+        }
+
+        .insight-highlight {
+            color: #FF6900;
+            font-weight: 700;
+        }
+
+        .recommendation-banner {
+            margin-top: 30px;
+            padding: 25px 35px;
+            background: linear-gradient(135deg, rgba(255, 105, 0, 0.2) 0%, rgba(255, 140, 66, 0.1) 100%);
+            border-radius: 12px;
+            border: 2px solid rgba(255, 105, 0, 0.4);
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(255, 105, 0, 0.3);
+        }
+
+        .recommendation-text {
+            font-size: 18px;
+            font-weight: 700;
+            color: #FF6900;
+            line-height: 1.5;
+        }
     </style>
 </head>
 
@@ -1595,8 +1727,81 @@
             <div class="slide-number">4 / 9</div>
         </div>
 
-        <!-- Слайд 5: Аналитический подход -->
+        <!-- Слайд 5: Size Up - Смена размера -->
         <div class="slide" id="slide-5">
+            <div class="dodo-logo">DODO PRIME</div>
+            <h2>Смена размера пицц: Рост чека без потери конверсии</h2>
+            
+            <div class="three-zone-layout">
+                <!-- Левая зона: Визуализация -->
+                <div class="size-up-visual">
+                    <img src="size_up.png" alt="Size Up Feature">
+                </div>
+
+                <!-- Центральная зона: Метрики -->
+                <div class="metrics-column">
+                    <div class="size-metric-card">
+                        <div class="size-metric-icon">📈</div>
+                        <div class="size-metric-content">
+                            <div class="size-metric-value green">+0.8%</div>
+                            <div class="size-metric-label">Прирост выручки комбо</div>
+                        </div>
+                    </div>
+
+                    <div class="size-metric-card">
+                        <div class="size-metric-icon">📱</div>
+                        <div class="size-metric-content">
+                            <div class="size-metric-value">5.3%</div>
+                            <div class="size-metric-label">Доля использования фичи</div>
+                        </div>
+                    </div>
+
+                    <div class="size-metric-card">
+                        <div class="size-metric-icon">💰</div>
+                        <div class="size-metric-content">
+                            <div class="size-metric-value green">+0.2%</div>
+                            <div class="size-metric-label">Вклад в средний чек</div>
+                        </div>
+                    </div>
+
+                    <div class="size-metric-card">
+                        <div class="size-metric-icon">✅</div>
+                        <div class="size-metric-content">
+                            <div class="size-metric-value green">Safe</div>
+                            <div class="size-metric-label">Никакого негативного влияния на Unit Cost и конверсию</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Правая зона: Аналитические инсайты -->
+                <div class="insights-column">
+                    <div class="insights-title">🔍 Аналитические инсайты</div>
+                    
+                    <div class="insight-item">
+                        <div class="insight-text">
+                            В комбо <span class="insight-highlight">25 см</span> переключение происходит <span class="insight-highlight">в 2 раза реже</span> из-за более высокой цены доплаты
+                        </div>
+                    </div>
+
+                    <div class="insight-item">
+                        <div class="insight-text">
+                            Пользователи <span class="insight-highlight">iOS</span> активнее используют Size Up: <span class="insight-highlight">5.7%</span> против <span class="insight-highlight">4.6%</span> на Android
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recommendation-banner">
+                <div class="recommendation-text">
+                    ✓ Раскатано на всю сеть. +23 млн руб. инкрементальной выручки в месяц
+                </div>
+            </div>
+
+            <div class="slide-number">5 / 9</div>
+        </div>
+
+        <!-- Слайд 6: Аналитический подход -->
+        <div class="slide" id="slide-6">
             <div class="dodo-logo">DODO PRIME</div>
             <h2>Аналитический подход к управлению комбо</h2>
             <div class="subtitle">Убрали интуитивное управление и рутину, заменив их методологией и автоматизацией</div>
@@ -1647,11 +1852,11 @@
                 </div>
             </div>
 
-            <div class="slide-number">5 / 9</div>
+            <div class="slide-number">6 / 9</div>
         </div>
 
-        <!-- Слайд 6: Экономический эффект -->
-        <div class="slide" id="slide-6">
+        <!-- Слайд 7: Экономический эффект -->
+        <div class="slide" id="slide-7">
             <div class="dodo-logo">DODO PRIME</div>
             <h2>Эффект на P&L</h2>
 
@@ -1740,11 +1945,11 @@
                 </div>
             </div>
 
-            <div class="slide-number">6 / 9</div>
+            <div class="slide-number">7 / 9</div>
         </div>
 
-        <!-- Слайд 7: Гибкость и доступность -->
-        <div class="slide" id="slide-7">
+        <!-- Слайд 8: Гибкость и доступность -->
+        <div class="slide" id="slide-8">
             <div class="dodo-logo">DODO PRIME</div>
             <h2>Эволюция комбо — Продукт и меню</h2>
 
@@ -1785,11 +1990,11 @@
                 </div>
             </div>
 
-            <div class="slide-number">7 / 9</div>
+            <div class="slide-number">8 / 9</div>
         </div>
 
-        <!-- Слайд 8: Партнер и Клиент -->
-        <div class="slide" id="slide-8">
+        <!-- Слайд 9: Партнер и Клиент -->
+        <div class="slide" id="slide-9">
             <div class="dodo-logo">DODO PRIME</div>
             <h2>Партнер и Клиент — Win-Win</h2>
             <div class="subtitle">Удобство и доступность для всех</div>
@@ -1818,30 +2023,6 @@
             <!-- <div style="margin-top: 50px; text-align: center;">
                 <div class="scale-badge">✓ Раскатано на всю сеть</div>
             </div> -->
-
-            <div class="slide-number">8 / 9</div>
-        </div>
-
-        <!-- Слайд 9: Итоги -->
-        <div class="slide" id="slide-9">
-            <div class="dodo-logo">DODO PRIME</div>
-
-            <div class="final-message">
-                <div class="final-title">Категория, готовая<br>к дальнейшему развитию</div>
-                <div class="final-text">
-                    Мы создали <span class="highlight">масштабируемый инструмент</span>
-                    для <span class="highlight">развития сети</span> и
-                    <span class="highlight">прибыли партнеров</span>.
-                </div>
-                <div style="margin-top: 80px;">
-                    <div style="font-size: 32px; font-weight: 700; color: #FF6900; margin-bottom: 20px;">
-                        Эволюция Комбо
-                    </div>
-                    <div style="font-size: 18px; font-weight: 300; color: #888;">
-                        Dodo Prime 2026.
-                    </div>
-                </div>
-            </div>
 
             <div class="slide-number">9 / 9</div>
         </div>
